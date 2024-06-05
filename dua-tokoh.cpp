@@ -14,6 +14,32 @@ int linearSearch(int arr[], int n, int x)
     return -1;
 }
 
+// Fungsi Binary Search
+int binarySearch(int arr[], int lenght, int x)
+{
+    int right = 0, middle = 0, left = lenght;
+
+    while (middle >= 0 && middle <= lenght)
+    {
+        middle = (left + right) / 2;
+
+        if (x == arr[middle])
+        {
+            return middle;
+        }
+        else if (x > arr[middle])
+        {
+            left++;
+        }
+        else
+        {
+            right--;
+        }
+    }
+
+    return -1;
+}
+
 int main()
 {
     int n, m, x;
@@ -42,7 +68,24 @@ int main()
     int index_B = binarySearch(array_B, m, x);
 
     // Output hasil pencarian : Isilah Output sesuai Deskripsi Soal
-    // ...
-
+    if (index_A != -1 && index_B != -1)
+    {
+        cout << "KEDUANYA " << index_A << " " << index_B;
+        return 0;
+    }
+    else if (index_A != -1 && index_B == -1)
+    {
+        cout << "BHASA " << index_A;
+        return 0;
+    }
+    else if (index_A == -1 && index_B != -1)
+    {
+        cout << "SENA " << index_B;
+        return 0;
+    }
+    else
+    {
+        cout << "TIDAK DITEMUKAN";
+    }
     return 0;
 }
